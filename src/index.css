@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VPPhotography Design System - Silver & Elegant */
+
+@layer base {
+  :root {
+    /* Core Silver Theme - Sophisticated & Modern */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Silver Accent for Premium Feel */
+    --primary: 0 0% 75%;
+    --primary-foreground: 0 0% 10%;
+
+    /* Silver Grays */
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 75%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 0 0% 22%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 75%;
+
+    --radius: 0.75rem;
+
+    /* Silver-specific Design Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 100%);
+    --silver-gradient: linear-gradient(135deg, hsl(0 0% 75%) 0%, hsl(0 0% 85%) 100%);
+    --overlay-gradient: linear-gradient(0deg, hsl(0 0% 8% / 0.8) 0%, transparent 100%);
+    
+    /* Elegant Shadows */
+    --shadow-elegant: 0 25px 50px -12px hsl(0 0% 8% / 0.4);
+    --shadow-silver: 0 10px 30px -10px hsl(0 0% 75% / 0.3);
+    
+    /* Smooth Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: all 0.2s ease-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Light mode fallback - keeping silver theme consistent */
+  .light {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-serif antialiased;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Times New Roman', Times, serif;
+    @apply font-medium tracking-tight;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--accent));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+}
+
+@layer components {
+  /* Photography Gallery Styles */
+  .gallery-item {
+    @apply relative overflow-hidden rounded-lg transition-transform duration-500 hover:scale-105;
+    transition: var(--transition-smooth);
+  }
+
+  .gallery-item::after {
+    content: '';
+    @apply absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300;
+    transition: var(--transition-fast);
+  }
+
+  .gallery-item:hover::after {
+    @apply opacity-100;
+  }
+
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .silver-gradient {
+    background: var(--silver-gradient);
+  }
+
+  /* Text Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .fade-in-delay {
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Button Variants */
+  .btn-elegant {
+    @apply px-8 py-4 rounded-full font-medium transition-all duration-300;
+    background: var(--silver-gradient);
+    box-shadow: var(--shadow-silver);
+  }
+
+  .btn-elegant:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .btn-ghost {
+    @apply px-6 py-3 border border-accent/20 text-accent hover:bg-accent/10 transition-colors duration-300;
+  }
+}
