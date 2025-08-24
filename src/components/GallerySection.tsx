@@ -10,7 +10,7 @@ import car from '@/assets/car.jpg';
 import silhouette from '@/assets/silhouette.jpg';
 import mountain from '@/assets/mountain.JPG'; // Re-added mountain image
 import dsc07757 from '@/assets/DSC07757_VSCO.JPG'; // New landscape image
-import rose from '@/assets/rose.jpg'; // New image (renamed img_1105)
+import rose from '@/assets/rose.JPG'; // New image (renamed img_1105)
 import joey from '@/assets/joey.jpg'; // New image (renamed img_0611)
 import guitar from '@/assets/guitar.jpg'; // New image
 import grad from '@/assets/grad.jpg'; // New graduation image
